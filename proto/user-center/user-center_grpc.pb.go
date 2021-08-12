@@ -109,7 +109,6 @@ type UserCenterServer interface {
 	Refresh(context.Context, *RefreshRequest) (*RefreshResponse, error)
 	GetUserInfo(context.Context, *GetUserInfoRequest) (*GetUserInfoResponse, error)
 	AddUser(context.Context, *AddUserRequest) (*AddUserResponse, error)
-	mustEmbedUnimplementedUserCenterServer()
 }
 
 // UnimplementedUserCenterServer must be embedded to have forward compatible implementations.
