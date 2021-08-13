@@ -11,6 +11,7 @@ import (
 
 	"github.com/gin-gonic/gin"
 	"github.com/sirupsen/logrus"
+	"gorm.io/gorm"
 )
 
 func CreateBlog(c *gin.Context) {
@@ -57,7 +58,7 @@ func UpdateBlog(c *gin.Context) {
 	}
 	user := userInterface.(*user_center.User)
 	blog := bl.Blog{
-		BlogID:         req.BlogID,
+		Model:          gorm.Model{ID: req.BlogID},
 		UserID:         uint(user.Id),
 		Title:          req.Title,
 		Content:        req.Title,

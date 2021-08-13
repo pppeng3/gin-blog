@@ -4,3 +4,4 @@
 *.yml 
 *.yaml 
 *.json
+*_test.go

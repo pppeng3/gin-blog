@@ -10,6 +10,7 @@ import (
 
 	"github.com/gin-gonic/gin"
 	"github.com/sirupsen/logrus"
+	"gorm.io/gorm"
 )
 
 func CreateComment(c *gin.Context) {
@@ -26,9 +27,9 @@ func CreateComment(c *gin.Context) {
 	}
 	user := userInterface.(*user_center.User)
 	comment := dbm.Comment{
+		Model:             gorm.Model{ID: req.CommentID},
 		UserID:            uint(user.Id),
 		BlogID:            req.BlogID,
-		CommentID:         req.CommentID,
 		CommentContent:    req.CommentContent,
 		CommentCreateTime: time.Now(),
 	}
@@ -54,9 +55,9 @@ func UpdateComment(c *gin.Context) {
 	}
 	user := userInterface.(*user_center.User)
 	comment := dbm.Comment{
+		Model:             gorm.Model{ID: req.CommentID},
 		UserID:            uint(user.Id),
 		BlogID:            req.BlogID,
-		CommentID:         req.CommentID,
 		CommentContent:    req.CommentContent,
 		CommentUpdateTime: time.Now(),
 	}

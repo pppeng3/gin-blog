@@ -8,7 +8,6 @@ import (
 
 type Comment struct {
 	gorm.Model
-	CommentID         uint `gorm:"primary_key; AUTO_INCREMENT"`
 	BlogID            uint
 	UserID            uint
 	CommentContent    string `gorm:"size:128; not null" json:"commentcontent"`

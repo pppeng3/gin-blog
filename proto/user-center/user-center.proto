@@ -18,9 +18,6 @@ message UserExtra
     string email = 4;
     string phone_number = 5;
     string avatar_url = 6;
-
-    User fans = 7;
-    User follower = 8;
 }
 
 message RegisterRequest
@@ -111,7 +108,8 @@ message RefreshResponse
 
 message GetUserInfoRequest
 {
-    string username = 1;
+    int32 user_id = 1;
+    string username = 2;
 
     base.Base base = 255;
 }
@@ -133,8 +131,7 @@ message AddUserRequest
 
 message AddUserResponse
 {
-    UserExtra user_info = 1;
-    string username = 2;
+    string username = 1;
 
     base.BaseResp base_resp = 255;
 }

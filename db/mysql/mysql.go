@@ -27,7 +27,7 @@ func Init() {
 	if err != nil {
 		panic(err)
 	}
-	db.AutoMigrate(&model.Blog{}, &model.Comment{})
+	db.AutoMigrate(&model.Blog{}, &model.Comment{}, &model.User{}, &model.UserExtra{})
 }
 
 func GetDB() *gorm.DB {

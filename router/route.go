@@ -11,7 +11,7 @@ import (
 func CollectRoutes(r *gin.Engine) {
 	r.LoadHTMLGlob("temp/*")
 
-	r.POST("/api/user/register", handler.Register)
+	r.POST("/api/user/register", handler.Register, middleware.CheckRegisterMiddleware, middleware.CheckUserInfoMiddleware)
 	r.POST("/api/user/login", handler.Login)
 
 	mustLogin := r.Group("/api", middleware.JWTAuthMiddleware)
